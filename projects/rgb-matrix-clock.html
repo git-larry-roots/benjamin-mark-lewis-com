@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RGB Matrix Clock — Benjamin Mark Lewis</title>
+  <meta name="description" content="CircuitPython firmware for a 64x32 matrix clock with RTC, sensors, and menu controls.">
+  <meta name="theme-color" content="#f7f7ef">
+  <meta name="color-scheme" content="light">
+  <link rel="canonical" href="https://benjaminmarklewis.com/projects/rgb-matrix-clock.html">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <meta property="og:title" content="RGB Matrix Clock — Benjamin Mark Lewis">
+  <meta property="og:description" content="CircuitPython firmware for a 64x32 matrix clock with RTC, sensors, and menu controls.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://benjaminmarklewis.com/projects/rgb-matrix-clock.html">
+  <meta property="og:image" content="https://benjaminmarklewis.com/assets/img/projects/rgb-matrix-clock.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;550;600;650;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400;1,8..60,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <script src="../script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" id="top">
+    <nav class="container navigation" aria-label="Main navigation">
+      <a class="brand" href="../index.html#top" aria-label="Benjamin Mark Lewis home"><span class="brand-mark" aria-hidden="true">bml.</span><span class="brand-name">Benjamin<br>Mark Lewis</span></a>
+      <button class="menu-toggle" type="button" aria-controls="nav-links" aria-expanded="false" hidden>Menu <span aria-hidden="true">+</span></button>
+      <div class="nav-links" id="nav-links">
+        <a href="../index.html#projects">Selected work</a>
+        <a href="../index.html#publications">Research</a>
+        <a href="../index.html#experience">About</a>
+        <a href="../assets/pdf/BL_CV_2026.pdf" target="_blank" rel="noopener">CV <span aria-hidden="true">↗</span></a>
+        <a class="nav-contact" href="../index.html#contact">Let’s talk <span aria-hidden="true">↗</span></a>
+      </div>
+    </nav>
+  </header>
+  <main id="main" class="project-page">
+    <section class="project-hero section visible"><div class="container project-hero__grid"><div><a class="text-link" href="../index.html#projects">← Back to projects</a><p class="eyebrow">CircuitPython · Hardware</p><h1>RGB Matrix Clock</h1><p class="project-hero__sub">CircuitPython firmware for a 64×32 matrix clock with RTC, sensors, and menu controls.</p><div class="project-hero__actions"><a class="button button-primary" href="https://github.com/gitbenlewis/RGB_Matrix_Clock_waveshare_64_32_pi_pico" target="_blank" rel="noopener">View repository</a></div></div><figure class="project-hero__figure"><img src="../assets/img/projects/rgb-matrix-clock.jpg" alt="RGB matrix clock hardware project" width="960" height="540" /><figcaption>Hardware clock build powered by CircuitPython on a Raspberry Pi Pico-class board and a Waveshare matrix panel.</figcaption></figure></div></section>
+    <section class="section project-detail visible"><div class="container project-detail__layout"><aside class="project-detail__meta"><span class="section__label">At a glance</span><h2>A compact hardware side quest</h2><p>A CircuitPython clock combining RTC-backed timekeeping, environmental sensing, and on-device controls.</p></aside><div class="project-detail__content">
+      <h2>Overview</h2><p>This project is a hardware clock build powered by CircuitPython on a Raspberry Pi Pico-class board and a Waveshare 64×32 RGB matrix panel. It combines local sensor input with RTC-backed timekeeping and a compact on-device menu for display control.</p>
+      <h2>Hardware stack</h2><ul><li>Raspberry Pi Pico-class board, with UF2 builds targeting Pico 2 W.</li><li>Waveshare 64×32 RGB matrix panel.</li><li>DS3231 RTC over I2C.</li><li>DHT22 temperature/humidity sensor.</li><li>Photoresistor for ambient light sensing.</li><li>Three buttons for menu navigation.</li></ul>
+      <h2>Firmware structure</h2><ul><li><code>code.py</code>: main loop, refresh cadence, and fault recovery reload.</li><li><code>display_manager.py</code>: matrix and label object setup.</li><li><code>display_updates.py</code>: time/date rendering, animations, and sensor display updates.</li><li><code>brightness.py</code>: auto/manual dim logic and color scaling.</li><li><code>menu.py</code>: button handling and menu state transitions.</li><li><code>sensors.py</code>: DS3231, DHT22, and photoresistor initialization.</li></ul>
+      <h2>Key features</h2><ul><li>Animated 24-hour time display with date and weekday row.</li><li>Temperature and humidity readout.</li><li>Scrolling banner text.</li><li>Auto brightness with manual override.</li><li>Menu controls for brightness mode and dim level.</li></ul>
+      <h2>Setup summary</h2><ol><li>Flash the CircuitPython UF2 from <code>RGB_scroll_clock_0215/</code>.</li><li>Copy firmware files and <code>lib/</code> dependencies to <code>CIRCUITPY</code>.</li><li>Confirm wiring in <code>config.py</code> pin mappings.</li><li>Set display text, colors, and brightness defaults in <code>config.py</code>.</li><li>Reboot and verify menu controls and sensor updates.</li></ol>
+    </div></div></section>
+  </main>
+  <footer class="site-footer"><div class="container footer-inner"><a class="brand-mark" href="../index.html#top" aria-label="Back to top">bml.</a><p>© 2026 Benjamin Mark Lewis</p><span class="footer-location">Made with curiosity. Based in San Diego.</span><a href="../index.html#top">Back to top <span aria-hidden="true">↑</span></a></div></footer>
+</body>
+</html>

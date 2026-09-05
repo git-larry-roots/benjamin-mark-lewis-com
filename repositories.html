@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Repositories — Benjamin Mark Lewis</title>
+  <meta name="description" content="Public GitHub repositories from Benjamin Mark Lewis, including bioinformatics tools, analysis workflows, hardware projects, and selected forks.">
+  <meta name="theme-color" content="#f7f7ef">
+  <meta name="color-scheme" content="light">
+  <link rel="canonical" href="https://benjaminmarklewis.com/repositories.html">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <meta property="og:title" content="Repositories — Benjamin Mark Lewis">
+  <meta property="og:description" content="Public GitHub repositories from Benjamin Mark Lewis, including bioinformatics tools, analysis workflows, hardware projects, and selected forks.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://benjaminmarklewis.com/repositories.html">
+  <meta property="og:image" content="https://benjaminmarklewis.com/assets/img/benjamin-lewis.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;550;600;650;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400;1,8..60,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+  <script src="repositories.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" id="top">
+    <nav class="container navigation" aria-label="Main navigation">
+      <a class="brand" href="index.html#top" aria-label="Benjamin Mark Lewis home"><span class="brand-mark" aria-hidden="true">bml.</span><span class="brand-name">Benjamin<br>Mark Lewis</span></a>
+      <button class="menu-toggle" type="button" aria-controls="nav-links" aria-expanded="false" hidden>Menu <span aria-hidden="true">+</span></button>
+      <div class="nav-links" id="nav-links">
+        <a href="index.html#projects">Selected work</a>
+        <a href="index.html#publications">Research</a>
+        <a href="index.html#experience">About</a>
+        <a href="assets/pdf/BL_CV_2026.pdf" target="_blank" rel="noopener">CV <span aria-hidden="true">↗</span></a>
+        <a class="nav-contact" href="index.html#contact">Let’s talk <span aria-hidden="true">↗</span></a>
+      </div>
+    </nav>
+  </header>
+  <main id="main" class="repository-page">
+    <section class="section repository-hero visible">
+      <div class="container">
+        <div class="repository-hero__grid">
+          <div>
+            <p class="eyebrow">Repositories</p>
+            <h1>Public code, tools, and experiments.</h1>
+            <p class="repository-hero__sub">Public repositories from <strong>gitbenlewis</strong>, spanning bioinformatics, reproducible analysis, scientific software, hardware projects, and selected forks.</p>
+            <div class="repository-hero__actions">
+              <a class="button button-primary" href="https://github.com/gitbenlewis" target="_blank" rel="noopener">Open GitHub profile</a>
+              <a class="button button-secondary" href="index.html#projects">View selected projects</a>
+            </div>
+          </div>
+          <div class="repo-profile">
+            <img src="assets/img/github-avatar.png" alt="GitHub avatar for gitbenlewis" width="96" height="96" />
+            <div>
+              <p class="repo-profile__label">GitHub user</p>
+              <h2>gitbenlewis</h2>
+              <p>Original repositories and forks are separated below for faster scanning.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="repository-tools" aria-label="Repository search and filters">
+      <div class="container">
+        <div class="repository-controls">
+          <div class="repository-search">
+            <label for="repository-search">Search repositories</label>
+            <input id="repository-search" type="search" placeholder="Search by name, language, or purpose" autocomplete="off" />
+          </div>
+          <div class="repository-filters">
+            <span class="repository-filter-group__label">Show</span>
+            <div class="repository-filter-group" role="group" aria-label="Repository type">
+              <button class="repository-filter" type="button" data-repository-filter="all" aria-pressed="true">All</button>
+              <button class="repository-filter" type="button" data-repository-filter="original" aria-pressed="false">Original</button>
+              <button class="repository-filter" type="button" data-repository-filter="fork" aria-pressed="false">Forks</button>
+            </div>
+          </div>
+          <p class="repository-results" id="repository-results" aria-live="polite">24 repositories</p>
+        </div>
+        <p class="repository-no-results" id="repository-no-results" hidden>No repositories match that search.</p>
+      </div>
+    </section>
+
+    <section class="section repository-directory visible" id="original-repositories">
+      <div class="container">
+        <div class="repository-directory__heading">
+          <div>
+            <span class="section__label">Original work</span>
+            <h2>Original repositories</h2>
+          </div>
+          <p>Scientific tools, analysis workflows, notebooks, hardware projects, and site code.</p>
+        </div>
+
+        <div class="repository-directory__grid">
+          <a class="repository-card" href="https://github.com/gitbenlewis/adata_science_tools" target="_blank" rel="noopener" aria-label="Open adata_science_tools on GitHub">
+            <div class="repository-card__meta"><span>Original</span><span>Python</span></div>
+            <h3>adata_science_tools</h3>
+            <p>AnnData-native analysis and scientific visualization for reproducible multi-omic workflows.</p>
+            <span class="repository-card__link">Open on GitHub →</span>
+          </a>
+
+          <a class="repository-card" href="https://github.com/gitbenlewis/pydeseq2_vs_R_deseq2_parity_tests" target="_blank" rel="noopener" aria-label="Open pydeseq2_vs_R_deseq2_parity_tests on GitHub">
+            <div class="repository-card__meta"><span>Original</span><span>Python</span></div>
+            <h3>pydeseq2_vs_R_deseq2_parity_tests</h3>
+            <p>Parity tests comparing PyDESeq2 results with the reference R DESeq2 implementation.</p>
+            <span class="repository-card__link">Open on GitHub →</span>
+          </a>
+
+          <a class="repository-card" href="https://github.com/gitbenlewis/dotfiles" target="_blank" rel="noopener" aria-label="Open dotfiles on GitHub">
+            <div class="repository-card__meta"><span>Original</span><span>Shell</span></div>
+            <h3>dotfiles</h3>
+            <p>Shell configuration, dotfiles, and reusable development skills.</p>
+            <span class="repository-card__link">Open on GitHub →</span>
+          </a>
+
+          <a class="repository-card" href="https://github.com/gitbenlewis/gitbenlewis.github.io" target="_blank" rel="noopener" aria-label="Open gitbenlewis.github.io on GitHub">
+            <div class="repository-card__meta"><span>Original</span><span>HTML</span></div>
+            <h3>gitbenlewis.github.io</h3>
+            <p>Source for Benjamin Mark Lewis’s GitHub Pages site.</p>
+            <span class="repository-card__link">Open on GitHub →</span>
+          </a>
+
+          <a class="repository-card" href="https://github.com/gitbenlewis/gitbenlewis_cheatsheets" target="_blank" rel="noopener" aria-label="Open gitbenlewis_cheatsheets on GitHub">
+            <div class="repository-card__meta"><span>Original</span><span>Jupyter Notebook</span></div>
+            <h3>gitbenlewis_cheatsheets</h3>
+            <p>Personal notebooks and reference material for common computational workflows.</p>
+            <span class="repository-card__link">Open on GitHub →</span>
+          </a>
+
+          <a class="repository-card" href="https://github.com/gitbenlewis/single_cell_python_tools" target="_blank" rel="noopener" aria-label="Open single_cell_python_tools on GitHub">
+            <div class="repository-card__meta"><span>Original</span><span>Jupyter Notebook</span></div>
+            <h3>single_cell_python_tools</h3>
+            <p>Scanpy wrappers and AnnData utilities that streamline single-cell analysis.</p>
+            <span class="repository-card__link">Open on GitHub →</span>
+          </a>
+
+          <a class="repository-card" href="https://github.com/gitbenlewis/blood_collection_dashboard" target="_blank" rel="noopener" aria-label="Open blood_collection_dashboard on GitHub">
+            <div class="repository-card__meta"><span>Original</span><span>HTML</span></div>
+            <h3>blood_collection_dashboard</h3>
+            <p>Interactive dashboard for tracking biomarker sample collection across clinical-trial visits.</p>
+            <span class="repository-card__link">Open on GitHub →</span>
+          </a>
+
+          <a class="repository-card" href="https://github.com/gitbenlewis/run_GSEApy_wrapper" target="_blank" rel="noopener" aria-label="Open run_GSEApy_wrapper on GitHub">
+            <div class="repository-card__meta"><span>Original</span><span>Python</span></div>
+            <h3>run_GSEApy_wrapper</h3>
+            <p>Wrapper for reproducible preranked gene set enrichment analysis with GSEApy.</p>
+            <span class="repository-card__link">Open on GitHub →</span>
+          </a>
+
+          <a class="repository-card" href="https://github.com/gitbenlewis/RNAseq_analysis" target="_blank" rel="noopener" aria-label="Open RNAseq_analysis on GitHub">
+            <div class="repository-card__meta"><span>Original</span><span>Python</span></div>
+            <h3>RNAseq_analysis</h3>
+            <p>Reusable helpers and workflows for bulk RNA-seq analysis.</p>
+            <span class="repository-card__link">Open on GitHub →</span>
+          </a>
+
+          <a class="repository-card" href="https://github.com/gitbenlewis/RGB_Matrix_Clock_waveshare_64_32_pi_pico" target="_blank" rel="noopener" aria-label="Open RGB Matrix Clock repository on GitHub">
+            <div class="repository-card__meta"><span>Original</span><span>Python</span></div>
+            <h3>RGB_Matrix_Clock_waveshare_64_32_pi_pico</h3>
+            <p>CircuitPython firmware for a 64×32 RGB matrix clock with RTC, sensors, and menu controls.</p>
+            <span class="repository-card__link">Open on GitHub →</span>
+          </a>
+
+          <a class="repository-card" href="https://github.com/gitbenlewis/ARCHS4_bulk_RNAseq_project" target="_blank" rel="noopener" aria-label="Open ARCHS4_bulk_RNAseq_project on GitHub">
+            <div class="repository-card__meta"><span>Original</span><span>Jupyter Notebook</span></div>
+            <h3>ARCHS4_bulk_RNAseq_project</h3>
+            <p>Example notebooks and tools for working with the ARCHS4 bulk RNA-seq dataset.</p>
+            <span class="repository-card__link">Open on GitHub →</span>
+          </a>
+
+          <a class="repository-card" href="https://github.com/gitbenlewis/gitbenlewis_coursera_nbs" target="_blank" rel="noopener" aria-label="Open gitbenlewis_coursera_nbs on GitHub">
+            <div class="repository-card__meta"><span>Original</span><span>Jupyter Notebook</span></div>
+            <h3>gitbenlewis_coursera_nbs</h3>
+            <p>Jupyter notebooks created while completing Coursera coursework.</p>
+            <span class="repository-card__link">Open on GitHub →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section repository-directory repository-directory--forks visible" id="forked-repositories">
+      <div class="container">
+        <div class="repository-directory__heading">
+          <div>
+            <span class="section__label">Selected forks</span>
+            <h2>Forked repositories</h2>
+          </div>
+          <p>Upstream projects retained for experimentation, reference, or custom development.</p>
+        </div>
+
+        <div class="repository-directory__grid">
+          <a class="repository-card repository-card--fork" href="https://github.com/gitbenlewis/sofle-hybrid-ergomech-zmk" target="_blank" rel="noopener" aria-label="Open sofle-hybrid-ergomech-zmk on GitHub">
+            <div class="repository-card__meta"><span>Fork</span><span>Keyboard firmware</span></div>
+            <h3>sofle-hybrid-ergomech-zmk</h3>
+            <p>Custom Sofle ergonomic keyboard firmware based on ergomechstore/sofle-hybrid-ergomech-zmk.</p>
+            <span class="repository-card__source">From ergomechstore/sofle-hybrid-ergomech-zmk</span>
+          </a>
+
+          <a class="repository-card repository-card--fork" href="https://github.com/gitbenlewis/sofle-hybrid-ergomech-niceview" target="_blank" rel="noopener" aria-label="Open sofle-hybrid-ergomech-niceview on GitHub">
+            <div class="repository-card__meta"><span>Fork</span><span>Keyboard display</span></div>
+            <h3>sofle-hybrid-ergomech-niceview</h3>
+            <p>Custom Sofle keyboard display configuration based on nguyenhaiac/sofle-hybrid-ergomech-niceview.</p>
+            <span class="repository-card__source">From nguyenhaiac/sofle-hybrid-ergomech-niceview</span>
+          </a>
+
+          <a class="repository-card repository-card--fork" href="https://github.com/gitbenlewis/PyDESeq2" target="_blank" rel="noopener" aria-label="Open PyDESeq2 fork on GitHub">
+            <div class="repository-card__meta"><span>Fork</span><span>Python</span></div>
+            <h3>PyDESeq2</h3>
+            <p>A Python implementation of the DESeq2 pipeline for bulk RNA-seq differential expression analysis.</p>
+            <span class="repository-card__source">From scverse/PyDESeq2</span>
+          </a>
+
+          <a class="repository-card repository-card--fork" href="https://github.com/gitbenlewis/andrej-karpathy-skills" target="_blank" rel="noopener" aria-label="Open andrej-karpathy-skills fork on GitHub">
+            <div class="repository-card__meta"><span>Fork</span><span>AI development</span></div>
+            <h3>andrej-karpathy-skills</h3>
+            <p>Guidance for improving coding-agent behavior based on common LLM coding pitfalls.</p>
+            <span class="repository-card__source">From multica-ai/andrej-karpathy-skills</span>
+          </a>
+
+          <a class="repository-card repository-card--fork" href="https://github.com/gitbenlewis/modules" target="_blank" rel="noopener" aria-label="Open modules fork on GitHub">
+            <div class="repository-card__meta"><span>Fork</span><span>Nextflow</span></div>
+            <h3>modules</h3>
+            <p>Community-maintained, tool-specific modules for Nextflow DSL2 workflows.</p>
+            <span class="repository-card__source">From nf-core/modules</span>
+          </a>
+
+          <a class="repository-card repository-card--fork" href="https://github.com/gitbenlewis/PyOncoplot" target="_blank" rel="noopener" aria-label="Open PyOncoplot fork on GitHub">
+            <div class="repository-card__meta"><span>Fork</span><span>Python</span></div>
+            <h3>PyOncoplot</h3>
+            <p>Python refactor of ggoncoplot for visualizing genomic alteration data.</p>
+            <span class="repository-card__source">From selkamand/ggoncoplot</span>
+          </a>
+
+          <a class="repository-card repository-card--fork" href="https://github.com/gitbenlewis/Pyfgsea" target="_blank" rel="noopener" aria-label="Open Pyfgsea fork on GitHub">
+            <div class="repository-card__meta"><span>Fork</span><span>R</span></div>
+            <h3>Pyfgsea</h3>
+            <p>Python-oriented implementation work for fast gene set enrichment analysis.</p>
+            <span class="repository-card__source">From alserglab/fgsea</span>
+          </a>
+
+          <a class="repository-card repository-card--fork" href="https://github.com/gitbenlewis/Pyggplot2" target="_blank" rel="noopener" aria-label="Open Pyggplot2 fork on GitHub">
+            <div class="repository-card__meta"><span>Fork</span><span>Python</span></div>
+            <h3>Pyggplot2</h3>
+            <p>Exploration of a Python implementation of ggplot2’s visualization system.</p>
+            <span class="repository-card__source">From tidyverse/ggplot2</span>
+          </a>
+
+          <a class="repository-card repository-card--fork" href="https://github.com/gitbenlewis/PyWGCNA" target="_blank" rel="noopener" aria-label="Open PyWGCNA fork on GitHub">
+            <div class="repository-card__meta"><span>Fork</span><span>Jupyter Notebook</span></div>
+            <h3>PyWGCNA</h3>
+            <p>Python package for weighted gene co-expression network analysis.</p>
+            <span class="repository-card__source">From mortazavilab/PyWGCNA</span>
+          </a>
+
+          <a class="repository-card repository-card--fork" href="https://github.com/gitbenlewis/Canopy" target="_blank" rel="noopener" aria-label="Open Canopy fork on GitHub">
+            <div class="repository-card__meta"><span>Fork</span><span>Python</span></div>
+            <h3>Canopy</h3>
+            <p>Python tooling for loading and working with SomaLogic proteomics data.</p>
+            <span class="repository-card__source">From SomaLogic/Canopy</span>
+          </a>
+
+          <a class="repository-card repository-card--fork" href="https://github.com/gitbenlewis/jekyll" target="_blank" rel="noopener" aria-label="Open jekyll fork on GitHub">
+            <div class="repository-card__meta"><span>Fork</span><span>Ruby</span></div>
+            <h3>jekyll</h3>
+            <p>Jekyll, a blog-aware static site generator for building websites with Ruby.</p>
+            <span class="repository-card__source">From jekyll/jekyll</span>
+          </a>
+
+          <a class="repository-card repository-card--fork" href="https://github.com/gitbenlewis/coding-interview-university" target="_blank" rel="noopener" aria-label="Open coding-interview-university fork on GitHub">
+            <div class="repository-card__meta"><span>Fork</span><span>Computer science</span></div>
+            <h3>coding-interview-university</h3>
+            <p>A comprehensive computer science study plan for software engineering interviews.</p>
+            <span class="repository-card__source">From jwasham/coding-interview-university</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="container footer-inner"><a class="brand-mark" href="index.html#top" aria-label="Back to top">bml.</a><p>© 2026 Benjamin Mark Lewis</p><span class="footer-location">Made with curiosity. Based in San Diego.</span><a href="index.html#top">Back to top <span aria-hidden="true">↑</span></a></div></footer>
+</body>
+</html>
