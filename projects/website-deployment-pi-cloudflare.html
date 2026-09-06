@@ -8,7 +8,7 @@
   <meta name="theme-color" content="#f7f7ef">
   <meta name="color-scheme" content="light">
   <link rel="canonical" href="https://benjaminmarklewis.com/projects/website-deployment-pi-cloudflare.html">
-  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
   <meta property="og:title" content="Deploying This Website on a Raspberry Pi 4 — Benjamin Mark Lewis">
   <meta property="og:description" content="How benjaminmarklewis.com was deployed as a static site on a Raspberry Pi 4 using Caddy and Cloudflare Tunnel.">
   <meta property="og:type" content="website">
@@ -18,7 +18,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;550;600;650;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400;1,8..60,500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../styles.css?v=classic-9">
   <script src="../script.js" defer></script>
 </head>
 <body>
@@ -31,7 +31,7 @@
         <a href="../index.html#projects">Selected work</a>
         <a href="../index.html#publications">Research</a>
         <a href="../index.html#experience">About</a>
-        <a href="../assets/pdf/BL_CV_2026.pdf" target="_blank" rel="noopener">CV <span aria-hidden="true">↗</span></a>
+        <a href="/assets/pdf/BL_CV_2026.pdf" target="_blank" rel="noopener">CV <span aria-hidden="true">↗</span></a>
         <a class="nav-contact" href="../index.html#contact">Let’s talk <span aria-hidden="true">↗</span></a>
       </div>
     </nav>
@@ -50,7 +50,7 @@
           </div>
         </div>
         <figure class="project-hero__figure">
-          <img src="../assets/img/projects/website-deployment/webserver-image-new.png" alt="Raspberry Pi 4 web server deployment diagram" width="1049" height="784" />
+          <a class="figure-link" href="/assets/img/projects/website-deployment/webserver-image-new.png" target="_blank" rel="noopener" aria-label="View full-size: Raspberry Pi 4 web server deployment diagram"><img src="/assets/img/projects/website-deployment/webserver-image-new.png" alt="Raspberry Pi 4 web server deployment diagram" width="1049" height="784" /><span class="figure-action">View full-size figure <span aria-hidden="true">↗</span></span></a>
           <figcaption>Raspberry Pi 4 web server deployment diagram.</figcaption>
         </figure>
       </div>
@@ -62,15 +62,15 @@
           <span class="section__label">Deployment post</span>
           <h2>A tiny origin server with simple static files</h2>
           <p>A tiny origin server, a simple static-file deploy, and Cloudflare handling the public edge.</p>
-        </aside>
+        <nav class="article-nav" aria-label="On this page"><p>On this page</p><ol><li><a href="#why-this-setup">Why this setup</a></li><li><a href="#the-architecture">The architecture</a></li><li><a href="#prepare-the-raspberry-pi">Prepare the Raspberry Pi</a></li><li><a href="#install-caddy-and-create-a-web-root">Install Caddy and create a web root</a></li><li><a href="#copy-the-static-site-to-the-pi">Copy the static site to the Pi</a></li><li><a href="#verify-locally-first">Verify locally first</a></li><li><a href="#put-cloudflare-tunnel-in-front">Put Cloudflare Tunnel in front</a></li><li><a href="#move-dns-from-the-old-host-to-cloudflare">Move DNS from the old host to Cloudflare</a></li><li><a href="#verify-the-public-cutover">Verify the public cutover</a></li><li><a href="#small-problems-i-hit">Small problems I hit</a></li><li><a href="#what-i-like-about-it">What I like about it</a></li><li><a href="#what-i-would-improve-next">What I would improve next</a></li><li><a href="#final-takeaway">Final takeaway</a></li></ol></nav></aside>
 
         <div class="project-detail__content">
-          <h2>Why this setup</h2>
+          <h2 id="why-this-setup">Why this setup</h2>
           <p>I wanted a deployment setup that felt simple, inexpensive, and fully under my control. Instead of pushing the site to a typical static-hosting platform, I hosted the finished static files on a Raspberry Pi 4 in my home network, served them with Caddy, and put Cloudflare Tunnel in front so the site could be reached publicly over HTTPS without opening router ports.</p>
           <p>The part I especially like is that the website is being hosted right now on an inexpensive Raspberry Pi 4 single-board computer that costs about <strong>$100</strong>. It also uses very little power — roughly <strong>5 watts</strong> while hosting — so it can run continuously without feeling like a full server sitting in the house. There is something satisfying about a real public site living on a tiny machine at home and quietly doing its job.</p>
 
-          <h2>The architecture</h2>
-          <pre><code>Visitor → Cloudflare DNS → Cloudflare Tunnel → Raspberry Pi → Caddy → Static site files</code></pre>
+          <h2 id="the-architecture">The architecture</h2>
+          <pre tabindex="0" role="region" aria-label="The architecture code example"><code>Visitor → Cloudflare DNS → Cloudflare Tunnel → Raspberry Pi → Caddy → Static site files</code></pre>
           <ul>
             <li>No inbound router port forwarding.</li>
             <li>Public HTTPS is handled through Cloudflare.</li>
@@ -78,63 +78,63 @@
             <li>Updates are a repeatable file sync plus verification.</li>
           </ul>
 
-          <h2>Prepare the Raspberry Pi</h2>
+          <h2 id="prepare-the-raspberry-pi">Prepare the Raspberry Pi</h2>
           <p>I started by wiping and reflashing the SD card for a Raspberry Pi 4. During imaging, I configured the basics so the machine could be managed after first boot. I used Raspberry Pi OS Full 64-bit; Lite would also work, but the 8GB Pi 4 had plenty of headroom and the desktop image is convenient for local troubleshooting.</p>
-          <pre><code>sudo apt update
+          <pre tabindex="0" role="region" aria-label="Prepare the Raspberry Pi code example"><code>sudo apt update
 sudo apt full-upgrade -y
 sudo reboot</code></pre>
 
-          <h2>Install Caddy and create a web root</h2>
+          <h2 id="install-caddy-and-create-a-web-root">Install Caddy and create a web root</h2>
           <p>The site is static, so there is no application runtime to manage. Caddy serves the files from a dedicated web root and gives a simple local preview before any public DNS changes.</p>
-          <pre><code>sudo mkdir -p /var/www/benjaminmarklewis
+          <pre tabindex="0" role="region" aria-label="Install Caddy and create a web root code example"><code>sudo mkdir -p /var/www/benjaminmarklewis
 sudo chown -R $USER:www-data /var/www/benjaminmarklewis</code></pre>
-          <pre><code>:8083 {
+          <pre tabindex="0" role="region" aria-label="Install Caddy and create a web root code example"><code>:8083 {
     root * /var/www/benjaminmarklewis
     file_server
 }</code></pre>
 
-          <h2>Copy the static site to the Pi</h2>
+          <h2 id="copy-the-static-site-to-the-pi">Copy the static site to the Pi</h2>
           <p>The deployment model is intentionally plain: the source files live on the development machine, and the Pi receives the ready-to-serve static files.</p>
-          <pre><code>rsync -av --delete /path/to/site/ user@pi-host:/var/www/benjaminmarklewis/</code></pre>
+          <pre tabindex="0" role="region" aria-label="Copy the static site to the Pi code example"><code>rsync -av --delete /path/to/site/ user@pi-host:/var/www/benjaminmarklewis/</code></pre>
           <p>That keeps the Pi free of extra development tooling and makes deploys quick to repeat.</p>
 
-          <h2>Verify locally first</h2>
+          <h2 id="verify-locally-first">Verify locally first</h2>
           <p>Before touching public DNS, I checked the Pi over the LAN. This separated origin-server problems from DNS or Cloudflare problems. Once the LAN preview returned HTTP 200 and the expected page content was present, the public cutover was much less stressful.</p>
 
-          <h2>Put Cloudflare Tunnel in front</h2>
+          <h2 id="put-cloudflare-tunnel-in-front">Put Cloudflare Tunnel in front</h2>
           <p>Cloudflare Tunnel lets the Pi maintain an outbound connection to Cloudflare. Public requests come back through that connection, so the Pi does not need to be directly exposed to the internet.</p>
-          <pre><code>ingress:
+          <pre tabindex="0" role="region" aria-label="Put Cloudflare Tunnel in front code example"><code>ingress:
   - hostname: benjaminmarklewis.com
     service: http://localhost:8083
   - hostname: www.benjaminmarklewis.com
     service: http://localhost:8083
   - service: http_status:404</code></pre>
 
-          <h2>Move DNS from the old host to Cloudflare</h2>
+          <h2 id="move-dns-from-the-old-host-to-cloudflare">Move DNS from the old host to Cloudflare</h2>
           <p>Before the cutover, the live site was still served elsewhere. Cloudflare imported the existing DNS records, then I removed the web-hosting records that pointed at the old platform and switched the registrar nameservers to Cloudflare.</p>
 
           <div class="project-screenshot-grid">
-            <figure class="project-inline-figure"><img src="../assets/img/projects/website-deployment/01-cloudflare-add-domain-redacted.png" alt="Redacted Cloudflare add-domain onboarding screen" width="1304" height="969" /><figcaption>Starting the Cloudflare onboarding flow for the domain.</figcaption></figure>
-            <figure class="project-inline-figure"><img src="../assets/img/projects/website-deployment/02-cloudflare-dns-import-redacted.png" alt="Redacted Cloudflare imported DNS records screen" width="1306" height="1180" /><figcaption>Cloudflare imported the old records first, making the cleanup step explicit.</figcaption></figure>
-            <figure class="project-inline-figure"><img src="../assets/img/projects/website-deployment/03-cloudflare-clean-dns-redacted.png" alt="Redacted Cloudflare DNS screen after cleanup" width="1506" height="1085" /><figcaption>After cleanup, only the record that still needed to remain was left before activation.</figcaption></figure>
-            <figure class="project-inline-figure"><img src="../assets/img/projects/website-deployment/04-cloudflare-nameservers-redacted.png" alt="Redacted Cloudflare nameserver instruction screen" width="1504" height="1359" /><figcaption>Cloudflare assigned new nameservers to copy into the registrar.</figcaption></figure>
+            <figure class="project-inline-figure"><a class="figure-link" href="/assets/img/projects/website-deployment/01-cloudflare-add-domain-redacted.png" target="_blank" rel="noopener" aria-label="View full-size: Redacted Cloudflare add-domain onboarding screen"><img src="/assets/img/projects/website-deployment/01-cloudflare-add-domain-redacted.png" alt="Redacted Cloudflare add-domain onboarding screen" width="1304" height="969" /><span class="figure-action">View full-size figure <span aria-hidden="true">↗</span></span></a><figcaption>Starting the Cloudflare onboarding flow for the domain.</figcaption></figure>
+            <figure class="project-inline-figure"><a class="figure-link" href="/assets/img/projects/website-deployment/02-cloudflare-dns-import-redacted.png" target="_blank" rel="noopener" aria-label="View full-size: Redacted Cloudflare imported DNS records screen"><img src="/assets/img/projects/website-deployment/02-cloudflare-dns-import-redacted.png" alt="Redacted Cloudflare imported DNS records screen" width="1306" height="1180" /><span class="figure-action">View full-size figure <span aria-hidden="true">↗</span></span></a><figcaption>Cloudflare imported the old records first, making the cleanup step explicit.</figcaption></figure>
+            <figure class="project-inline-figure"><a class="figure-link" href="/assets/img/projects/website-deployment/03-cloudflare-clean-dns-redacted.png" target="_blank" rel="noopener" aria-label="View full-size: Redacted Cloudflare DNS screen after cleanup"><img src="/assets/img/projects/website-deployment/03-cloudflare-clean-dns-redacted.png" alt="Redacted Cloudflare DNS screen after cleanup" width="1506" height="1085" /><span class="figure-action">View full-size figure <span aria-hidden="true">↗</span></span></a><figcaption>After cleanup, only the record that still needed to remain was left before activation.</figcaption></figure>
+            <figure class="project-inline-figure"><a class="figure-link" href="/assets/img/projects/website-deployment/04-cloudflare-nameservers-redacted.png" target="_blank" rel="noopener" aria-label="View full-size: Redacted Cloudflare nameserver instruction screen"><img src="/assets/img/projects/website-deployment/04-cloudflare-nameservers-redacted.png" alt="Redacted Cloudflare nameserver instruction screen" width="1504" height="1359" /><span class="figure-action">View full-size figure <span aria-hidden="true">↗</span></span></a><figcaption>Cloudflare assigned new nameservers to copy into the registrar.</figcaption></figure>
           </div>
 
-          <h2>Verify the public cutover</h2>
+          <h2 id="verify-the-public-cutover">Verify the public cutover</h2>
           <p>After the registrar nameserver update propagated and the tunnel routes were in place, I checked both apex and <code>www</code> over HTTPS. The checks were simple: HTTP 200, expected page content, and traffic clearly served through the Cloudflare path.</p>
           <div class="project-screenshot-grid project-screenshot-grid--tall">
-            <figure class="project-inline-figure"><img src="../assets/img/projects/website-deployment/05-cloudflare-propagation-redacted.png" alt="Redacted Cloudflare nameserver propagation screen" width="1010" height="1934" /><figcaption>There was a short waiting period while resolver state caught up.</figcaption></figure>
-            <figure class="project-inline-figure"><img src="../assets/img/projects/website-deployment/06-cloudflare-live-redacted.png" alt="Redacted Cloudflare live protection status screen" width="1000" height="2189" /><figcaption>Once propagation completed, Cloudflare showed the domain as active and protected.</figcaption></figure>
+            <figure class="project-inline-figure"><a class="figure-link" href="/assets/img/projects/website-deployment/05-cloudflare-propagation-redacted.png" target="_blank" rel="noopener" aria-label="View full-size: Redacted Cloudflare nameserver propagation screen"><img src="/assets/img/projects/website-deployment/05-cloudflare-propagation-redacted.png" alt="Redacted Cloudflare nameserver propagation screen" width="1010" height="1934" /><span class="figure-action">View full-size figure <span aria-hidden="true">↗</span></span></a><figcaption>There was a short waiting period while resolver state caught up.</figcaption></figure>
+            <figure class="project-inline-figure"><a class="figure-link" href="/assets/img/projects/website-deployment/06-cloudflare-live-redacted.png" target="_blank" rel="noopener" aria-label="View full-size: Redacted Cloudflare live protection status screen"><img src="/assets/img/projects/website-deployment/06-cloudflare-live-redacted.png" alt="Redacted Cloudflare live protection status screen" width="1000" height="2189" /><span class="figure-action">View full-size figure <span aria-hidden="true">↗</span></span></a><figcaption>Once propagation completed, Cloudflare showed the domain as active and protected.</figcaption></figure>
           </div>
 
-          <h2>Small problems I hit</h2>
+          <h2 id="small-problems-i-hit">Small problems I hit</h2>
           <ul>
             <li>I briefly tried to use Linux <code>apt</code> commands on macOS while setting up Raspberry Pi Imager. That failed immediately and was a useful reminder to keep Mac-side and Pi-side setup steps separate.</li>
             <li>The Pi already had Cloudflare credentials from an earlier tunnel setup, so I had to preserve the existing certificate before authorizing the new zone.</li>
             <li>DNS propagation was not synchronized across resolvers, which created a short period where different tools reported different states.</li>
           </ul>
 
-          <h2>What I like about it</h2>
+          <h2 id="what-i-like-about-it">What I like about it</h2>
           <ul>
             <li>The origin hosting cost is tiny because the Pi does the work.</li>
             <li>Power usage is tiny too — about 5 watts while serving the site.</li>
@@ -143,7 +143,7 @@ sudo chown -R $USER:www-data /var/www/benjaminmarklewis</code></pre>
             <li>Caddy keeps the local serving layer simple and predictable, which is exactly what I wanted.</li>
           </ul>
 
-          <h2>What I would improve next</h2>
+          <h2 id="what-i-would-improve-next">What I would improve next</h2>
           <ul>
             <li>Document the deploy command in one script.</li>
             <li>Add a basic rollback strategy.</li>
@@ -151,7 +151,7 @@ sudo chown -R $USER:www-data /var/www/benjaminmarklewis</code></pre>
             <li>Keep a cleaner separation between staging and production domains.</li>
           </ul>
 
-          <h2>Final takeaway</h2>
+          <h2 id="final-takeaway">Final takeaway</h2>
           <p>Hosting a static site on a Raspberry Pi is practical if the stack stays small. The winning combination here was not just the Pi, but the full flow around it: static files instead of a runtime-heavy app, Caddy for local serving, Cloudflare Tunnel for safe public access, and a disciplined local-first verification step before DNS changes.</p>
         </div>
       </div>

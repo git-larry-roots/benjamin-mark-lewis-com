@@ -8,7 +8,7 @@
   <meta name="theme-color" content="#f7f7ef">
   <meta name="color-scheme" content="light">
   <link rel="canonical" href="https://benjaminmarklewis.com/projects/adata-science-tools.html">
-  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
   <meta property="og:title" content="adata_science_tools — Benjamin Mark Lewis">
   <meta property="og:description" content="AnnData-native toolkit for differential analysis and publication-ready scientific visualization across common experimental designs.">
   <meta property="og:type" content="website">
@@ -18,7 +18,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;550;600;650;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400;1,8..60,500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../styles.css?v=classic-9">
   <script src="../script.js" defer></script>
 </head>
 <body>
@@ -31,7 +31,7 @@
         <a href="../index.html#projects">Selected work</a>
         <a href="../index.html#publications">Research</a>
         <a href="../index.html#experience">About</a>
-        <a href="../assets/pdf/BL_CV_2026.pdf" target="_blank" rel="noopener">CV <span aria-hidden="true">↗</span></a>
+        <a href="/assets/pdf/BL_CV_2026.pdf" target="_blank" rel="noopener">CV <span aria-hidden="true">↗</span></a>
         <a class="nav-contact" href="../index.html#contact">Let’s talk <span aria-hidden="true">↗</span></a>
       </div>
     </nav>
@@ -49,7 +49,7 @@
           </div>
         </div>
         <figure class="project-hero__figure">
-          <img src="../assets/img/projects/baseline.png" alt="Simulated correlation dotplot with marginal distributions" width="3799" height="2108" />
+          <a class="figure-link" href="/assets/img/projects/baseline.png" target="_blank" rel="noopener" aria-label="View full-size: Simulated correlation dotplot with marginal distributions"><img src="/assets/img/projects/baseline.png" alt="Simulated correlation dotplot with marginal distributions" width="3799" height="2108" /><span class="figure-action">View full-size figure <span aria-hidden="true">↗</span></span></a>
           <figcaption>Simulated feature-vs-age correlation dotplot with case/control group fits and marginal distributions.</figcaption>
         </figure>
       </div>
@@ -61,12 +61,12 @@
           <span class="section__label">At a glance</span>
           <h2>AnnData-native analysis utilities</h2>
           <p>A practical toolkit for reproducible analysis and clear scientific communication.</p>
-        </aside>
+        <nav class="article-nav" aria-label="On this page"><p>On this page</p><ol><li><a href="#overview">Overview</a></li><li><a href="#key-features">Key features</a></li><li><a href="#running-the-examples">Running the examples</a></li></ol></nav></aside>
         <div class="project-detail__content">
-          <h2>Overview</h2>
+          <h2 id="overview">Overview</h2>
           <p>An AnnData-native Python toolkit for differential analysis, scientific visualization, and reproducible simulation workflows. It brings common analysis patterns and plot types into one consistent interface for exploring and communicating multi-omic results.</p>
 
-          <h2>Key features</h2>
+          <h2 id="key-features">Key features</h2>
           <ul>
             <li><strong>Differential analysis:</strong> coordinated views of effect sizes, statistical significance, and feature-level distributions.</li>
             <li><strong>Scientific visualization:</strong> forest and meta-analysis plots, correlation views, longitudinal and paired data, survival curves, heatmaps, rank diagnostics, and volcano plots.</li>
@@ -76,8 +76,8 @@
             <li><strong>AnnData-native:</strong> all tools operate directly on AnnData objects for seamless integration with Scanpy workflows.</li>
           </ul>
 
-          <h2>Running the examples</h2>
-          <pre><code>git clone https://github.com/gitbenlewis/adata_science_tools.git
+          <h2 id="running-the-examples">Running the examples</h2>
+          <pre tabindex="0" role="region" aria-label="Running the examples code example"><code>git clone https://github.com/gitbenlewis/adata_science_tools.git
 conda env create -f config/env_not_base.yaml -n not_base
 conda activate not_base
 
