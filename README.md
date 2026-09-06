@@ -23,6 +23,6 @@ Open <http://127.0.0.1:4173/>. Refresh the page after editing files. Stop the se
 
 The homepage, all six project pages, the repository directory, images, and CV files are served locally. Repository source links and publication DOIs retain their external destinations. Google Fonts loads Inter and Source Serif 4 when available; system fonts provide an offline fallback.
 
-The inquiry form retains the live site's Formspark endpoint and submits through the browser. Checking the preview does not require sending a message. Native form validation, the existing honeypot field, and a direct email link are retained; actual message delivery has not been tested.
+The inquiry form retains the live site's Formspark endpoint and submits through the browser. Checking the preview does not require sending a message. Native form validation, the existing honeypot field are retained; actual message delivery has not been tested.
 
 This work does not deploy or alter the live website.
